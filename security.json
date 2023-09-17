@@ -1,0 +1,25 @@
+{
+  "signature": "HHKWOWRF123GDSFG124323",
+  "security" : [
+    {
+      "name": "网络库",
+      "data": [
+        {
+          "name": "secretID",
+          "value": "HHKWOWRF123GDSFG124323",
+          "describe": "网络鉴权key"
+        }
+      ]
+    },
+    {
+      "name": "微信能力",
+      "data": [
+        {
+          "name": "key",
+          "value": "HHKWOWRF123GDSFG124323",
+          "describe": "微信支付key"
+        }
+      ]
+    }
+  ]
+}
