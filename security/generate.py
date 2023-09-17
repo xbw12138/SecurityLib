@@ -6,8 +6,8 @@ current_directory = os.path.dirname(__file__)
 
 # 构建相对路径
 security_file_path = os.path.join(current_directory, "security.json")
-cpp_file_path = os.path.join(current_directory, "app", "src", "main", "cpp", "info.cpp")
-java_file_path = os.path.join(current_directory, "app", "src", "main", "java", "com", "xbw", "securitylib", "SecurityUtil.java")
+cpp_file_path = os.path.join(current_directory, "src", "main", "cpp", "info.cpp")
+java_file_path = os.path.join(current_directory, "src", "main", "java", "com", "xbw", "security", "SecurityUtil.java")
 
 cpp_code = """
 /// @brief Security Jni
@@ -26,7 +26,7 @@ ${SECURITY_JNI_LIST}
 cpp_code_jni = """
 /// ${SECURITY_DESCRIBE}
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_xbw_securitylib_SecurityUtil_${FUNCTION_NAME}(JNIEnv *env, jobject) {
+Java_com_xbw_security_SecurityUtil_${FUNCTION_NAME}(JNIEnv *env, jobject) {
     std::string content = "${SECURITY_VALUE}";
     return env->NewStringUTF(content.c_str());
 }
@@ -34,7 +34,7 @@ Java_com_xbw_securitylib_SecurityUtil_${FUNCTION_NAME}(JNIEnv *env, jobject) {
 """
 
 java_code = """
-package com.xbw.securitylib;
+package com.xbw.security;
 
 /// @brief Security Jni
 /// @author AutoCode
@@ -44,7 +44,7 @@ package com.xbw.securitylib;
 public class SecurityUtil {
 
   static {
-    System.loadLibrary("securitylib");
+    System.loadLibrary("security");
   }
 
   ${FUNCTION_NAME_LIST}
